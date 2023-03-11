@@ -22,7 +22,9 @@
  * Define Global Variables
  *
  */
-let test = 0;
+const sections = document.querySelectorAll("section");
+const allList = document.getElementById("navbar__list");
+const fragment = document.createDocumentFragment();
 
 /**
  * End Global Variables
@@ -37,6 +39,14 @@ let test = 0;
  */
 
 // build the nav
+sections.forEach((section, i) => {
+  const element = document.createElement("a");
+  element.innerText = section;
+  element.classList.add("all-items");
+  element.setAttribute("id", `all-${i + 1}`);
+  element.href = `#section${i + 1}`;
+  allList.appendChild(element);
+});
 
 // Add class 'active' to section when near top of viewport
 
